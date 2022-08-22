@@ -1,35 +1,24 @@
 <%
 def coach_answer(your_message)
-  if your_message.include? "I am going to work"
+  message = your_message.downcase
+  if message.include? "i am going to work"
     return "Great!"
-  elsif your_message.include? "?"
+  elsif message.include? "?"
     return "Silly question, get dressed and go to work!"
   else
     return "I don't care, get dressed and go to work!"
   end
 end
 %>
-<%#
-<% def coach_answer_enhanced(your_message)
-  message = "I can feel your motivation! " if your_message == your_message.upcase
-  if your_message.downcase.capitalize == "I am going to work right now!"
-    return ""
-  elsif your_message.include? "?"
-    return "#{message}Silly question, get dressed and go to work!"
-  else
-    return "#{message}I don't care, get dressed and go to work!"
-  end
-end
-%>
 
-<div>
-  <h4> <%= params[:question] %> </h4>
-  <h5>-You</h5>
+<div class="answer-box">
+  <h4>  <%= params[:question] %> </h4>
+  <h6>  <em>-You</em></h6>
 </div>
 
-<div>
-<h4><%= coach_answer(params[:question]) %></h4>
-<h5>-Coach</h5>
+<div class="answer-box answer-coach">
+  <h4>  <%= coach_answer(params[:question]) %></h4>
+  <h6>  <em>-Coach</em></h6>
 </div>
 
 
